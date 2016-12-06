@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 })
 export class HomePage {
 
-	url: string = 'http://eflore66.fr/wp-json/wp/v2/fleur?orderby=title&order=asc&filter[posts_per_page]=500';
+	url: string = 'http://eflore66.fr/wp-json/wp/v2/fleur?orderby=title&order=asc&filter[posts_per_page]=10';
   isBusy : boolean = true;
 	items: any;
 
