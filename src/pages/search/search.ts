@@ -19,6 +19,7 @@ export class SearchPage {
   }
 
   searchFlower(event, key) {
+
     if(event.target.value.length > 2) {
 
       this.isBusy = true;
