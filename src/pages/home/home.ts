@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import {PostDetail} from '../post-detail/post-detail';
-import { NavController} from 'ionic-angular';
-import {Http} from '@angular/http';
+import { PostDetail } from '../post-detail/post-detail';
+import { NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
+  selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-	url: string = 'http://eflore66.fr/wp-json/wp/v2/fleur?orderby=title&order=asc&filter[posts_per_page]=10';
+	//url: string = 'http://eflore66.fr/wp-json/wp/v2/fleur?orderby=title&order=asc&filter[posts_per_page]=10';
+  url: string = 'http://eflore66.fr/wp-json/wp/v2/fleur?filter[posts_per_page]=15';
   isBusy : boolean = true;
 	items: any;
 

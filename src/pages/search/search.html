@@ -12,4 +12,22 @@
     <ion-input type="text" placeholder="Rechercher une fleur..." (input)="searchFlower($event, searchKey)"></ion-input>
   </ion-item>
 
+  <ion-list>
+
+    <div class="container" [ngClass]="{'busy': isBusy}">
+      <div class="backdrop"></div>
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+
+      <ion-thumbnail item-left *ngIf="item.better_featured_image">
+        <img src="{{item.better_featured_image.media_details.sizes.thumbnail.source_url}}">
+      </ion-thumbnail>
+
+      <h2 [innerHTML]="item.title.rendered"></h2>
+
+    </button>
+  </ion-list>
+
 </ion-content>
