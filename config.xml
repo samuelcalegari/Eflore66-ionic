@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.flore690501" version="0.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.ionicframework.flore690501" version="0.0.10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>E-flore66</name>
   <description>Annuaire des fleurs des Pyrénées Orientales</description>
   <author email="samuel.calegari@gmail.com" href="http://www.samuel-calegari.fr/">Samuel Calegari</author>

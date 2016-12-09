@@ -33,6 +33,8 @@ export class SearchPage {
           this.isBusy = false;
         });
 
+    } else {
+      this.items = null;
     }
   }
 
