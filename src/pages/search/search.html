@@ -1,33 +1,48 @@
 <ion-header>
-  <ion-navbar color="secondary">
-    <ion-title>
-      Rechercher
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar color="secondary">
+        <ion-title>
+            Rechercher
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <ion-item>
-    <ion-input type="text" placeholder="Rechercher une fleur..." (input)="searchFlower($event, searchKey)"></ion-input>
-  </ion-item>
 
-  <ion-list>
+    <ion-item>
+        <ion-input type="text" placeholder="Rechercher une fleur..."
+                   (input)="searchFlower($event, searchKey)"></ion-input>
+    </ion-item>
 
-    <div class="container" [ngClass]="{'busy': isBusy}">
-      <div class="backdrop"></div>
-      <ion-spinner></ion-spinner>
-    </div>
+    <ion-card>
+        <ion-card-header></ion-card-header>
+        <ion-card-content>
+            <button ion-button color="blanc-creme" (click)="searchFlowerByColor(0);" round></button>
+            <button ion-button color="bleu-violet" (click)="searchFlowerByColor(1);" round></button>
+            <button ion-button color="jaune-orange" (click)="searchFlowerByColor(2);" round></button>
+            <button ion-button color="rose-rouge" (click)="searchFlowerByColor(3);" round></button>
+            <button ion-button color="vert-marron" (click)="searchFlowerByColor(4);" round></button>
+        </ion-card-content>
+    </ion-card>
 
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
 
-      <ion-thumbnail item-left *ngIf="item.better_featured_image">
-        <img src="{{item.better_featured_image.media_details.sizes.thumbnail.source_url}}">
-      </ion-thumbnail>
+    <ion-list>
 
-      <h2 [innerHTML]="item.title.rendered"></h2>
+        <div class="container" [ngClass]="{'busy': isBusy}">
+            <div class="backdrop"></div>
+            <ion-spinner></ion-spinner>
+        </div>
 
-    </button>
-  </ion-list>
+        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+
+            <ion-thumbnail item-left *ngIf="item.better_featured_image">
+                <img src="{{item.better_featured_image.media_details.sizes.thumbnail.source_url}}">
+            </ion-thumbnail>
+
+            <h2 [innerHTML]="item.title.rendered"></h2>
+            <div [innerHTML]="item.noms_francais"></div>
+
+        </button>
+    </ion-list>
 
 </ion-content>

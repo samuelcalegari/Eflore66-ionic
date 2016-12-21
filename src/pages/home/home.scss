@@ -1,5 +1,9 @@
 page-home {
 
+  h2 {
+    font-weight: bold !important;
+  }
+
   .container {
 
     z-index: -1;
@@ -9,13 +13,15 @@ page-home {
     height: 100%;
     position: absolute;
 
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 
     &.busy {
+      display: flex;
       z-index: 9999;
       transition: z-index 0.2s step-start;
+
       .backdrop {
         opacity: 0.3;
       }
@@ -24,6 +30,7 @@ page-home {
     .backdrop {
       opacity: 0.01;
       transition: opacity 0.2s;
+      display :none;
     }
 
     ion-spinner {
@@ -33,5 +40,3 @@ page-home {
   }
 
 }
-
-

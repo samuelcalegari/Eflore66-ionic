@@ -1,15 +1,224 @@
 <ion-header>
-  <ion-navbar color="secondary">
-    <ion-title>{{selectedItem.title.rendered}}</ion-title>
-  </ion-navbar>
+    <ion-navbar color="secondary">
+        <ion-title>{{selectedItem.title.rendered}}</ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content padding>
- <div *ngIf="selectedItem" class="selection">
-    <h2 [innerHTML]="selectedItem.title.rendered"></h2>
-    <div [innerHTML]="selectedItem.content.rendered" class="description"></div>
-    <div class="image">
-      <img src="{{selectedItem.better_featured_image.media_details.sizes.large.source_url}}">
+    <div *ngIf="selectedItem" class="selection">
+
+        <h2 [innerHTML]="selectedItem.title.rendered"></h2>
+
+        <div [innerHTML]="selectedItem.noms_francais" class="baseline"></div>
+
+        <div [innerHTML]="selectedItem.content.rendered" class="description"></div>
+
+        <div class="image">
+            <img src="{{selectedItem.better_featured_image.media_details.sizes.large.source_url}}">
+        </div>
+
+        <ion-card id="etymologie">
+            <ion-card-header> Etymologie</ion-card-header>
+            <ion-card-content>
+                <div [innerHTML]="selectedItem.etymologie" class="etymologie"></div>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card id="generalités">
+            <ion-card-header> Généralités</ion-card-header>
+            <ion-card-content>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Floraison
+                    </ion-col>
+                    <ion-col>
+                      {{mois_list[selectedItem.debut_floraison]}} - {{mois_list[selectedItem.fin_floraison]}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Sexualité
+                    </ion-col>
+                    <ion-col>
+                        {{sexualite_list[selectedItem.sexualite]}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Maturation
+                    </ion-col>
+                    <ion-col>
+                        {{maturation_list[selectedItem.maturation]}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Pollinisation
+                    </ion-col>
+                    <ion-col>
+                        {{pollinisation_list[selectedItem.pollinisation]}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Dissimination
+                    </ion-col>
+                    <ion-col>
+                        {{dissimination_list[selectedItem.dissimination]}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Formation végétale
+                    </ion-col>
+                    <ion-col>
+                        {{formation_vegetale_list[selectedItem.formation_vegetale]}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Type biologique
+                    </ion-col>
+                    <ion-col>
+                        {{type_biologique_list[selectedItem.type_biologique]}}
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card id="ecologie_optimale">
+            <ion-card-header> Ecologie optimale</ion-card-header>
+            <ion-card-content>
+                <ion-row>
+                    <ion-col width-30>
+                        Milieu
+                    </ion-col>
+                    <ion-col>
+                        {{selectedItem.milieu}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Chorologie
+                    </ion-col>
+                    <ion-col>
+                        {{selectedItem.chorologie}}
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col width-30>
+                        Altitude
+                    </ion-col>
+                    <ion-col>
+                        {{selectedItem.altitude}}
+                    </ion-col>
+                </ion-row>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card id="caracteristiques_climatiques">
+            <ion-card-header> Caractéristiques Climatiques</ion-card-header>
+            <ion-card-content>
+                <div class="bars">
+                    <label>Lumière</label>
+                    <progress value="{{selectedItem.lumiere}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Hypersciapille</span>
+                        <span class="pfin">Hyperhéliophile</span>
+                    </div>
+
+                    <label>Température</label>
+                    <progress value="{{selectedItem.temperature}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Alpine</span>
+                        <span class="pfin">Subdésertique</span>
+                    </div>
+
+                    <label>Continentalité</label>
+                    <progress value="{{selectedItem.continentalite}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Marine à maritime</span>
+                        <span class="pfin">Hypercontinentale</span>
+                    </div>
+
+                    <label>Humidité atmospherique</label>
+                    <progress value="{{selectedItem.humidite_atmospherique}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Aéroxérophile</span>
+                        <span class="pfin">Aérohydrophile</span>
+                    </div>
+
+                </div>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card id="caracteristiques_sol">
+            <ion-card-header> Caractéristiques du sol</ion-card-header>
+            <ion-card-content>
+                <div class="bars">
+                    <label>Humidité Edaphique</label>
+                    <progress value="{{selectedItem.humidite_edaphique}}" max="12"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Hyperxérophile</span>
+                        <span class="pfin">Aquatique profonde</span>
+                    </div>
+
+                    <label>PH</label>
+                    <progress value="{{selectedItem.ph}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Hyperacidophile</span>
+                        <span class="pfin">Hyperbasophile</span>
+                    </div>
+
+                    <label>Nutriment Sol</label>
+                    <progress value="{{selectedItem.nutriments_sol}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Hyperoligotrophile</span>
+                        <span class="pfin">Polytrophile</span>
+                    </div>
+
+                    <label>Salinité</label>
+                    <progress value="{{selectedItem.salinite}}" max="10"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Ne supportant pas le sel</span>
+                        <span class="pfin">Hyperhaline (>2,3% Clˉ)</span>
+                    </div>
+
+                    <label>Texture</label>
+                    <progress value="{{selectedItem.texture}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Argile</span>
+                        <span class="pfin">Dalle</span>
+                    </div>
+
+                    <label>Matière Organique</label>
+                    <progress value="{{selectedItem.matiere_organique}}" max="9"></progress>
+                    <div class="infos">
+                        <span class="pdeb">Lithosol</span>
+                        <span class="pfin">Tourbe</span>
+                    </div>
+
+                </div>
+            </ion-card-content>
+        </ion-card>
+
+        <ion-card id="etymologie">
+            <ion-card-header> Répartition</ion-card-header>
+            <ion-card-content>
+                <div class="image">
+                    <img src="{{selectedItem.carte}}">
+                </div>
+            </ion-card-content>
+        </ion-card>
+
     </div>
- </div>
 </ion-content>

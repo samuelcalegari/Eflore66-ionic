@@ -1,11 +1,98 @@
 page-post-detail {
 
+    ion-card-header{
+        background-color: #e0eaf0;
+        color : #fff !important;
+    }
+
+    ion-card-content{
+        margin-top: 20px;
+    }
+
+    ion-row{
+        border-bottom: 1px solid #e0eaf0;
+    }
+
+    .baseline {
+        text-align: right;
+        font-style: italic;
+    }
+
+    .description {
+        text-align: justify;
+    }
+
+    .image {
+        text-align: center;
+    }
+
+    .bars {
+
+        .pdeb {
+            float: left;
+        }
+
+        .pfin {
+            float: right;
+        }
+
+        .infos {
+
+            margin-bottom: 20px;
+            font-size: 0.8em;
+
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+
+
+
+    }
+
+    #caracteristiques_climatiques progress {
+
+        background-color: #f3f3f3;
+        border: 0;
+        height: 2.5em;
+        width: 100%;
+
+        &::-webkit-progress-bar {
+            background-color: #e0eaf0;
+        }
+
+        &::-webkit-progress-value {
+            background-color:#e67e22;
+        }
+
+        &::-moz-progress-bar {
+            background-color: #e67e22;
+        }
+    }
+
+    #caracteristiques_sol progress {
+
+        background-color: #f3f3f3;
+        border: 0;
+        height: 2.5em;
+        width: 100%;
+
+        &::-webkit-progress-bar {
+            background-color: #e0eaf0;
+        }
+
+        &::-webkit-progress-value {
+            background-color: #329ad1;
+        }
+
+        &::-moz-progress-bar {
+            background-color: #329ad1;
+        }
+    }
 }
 
-.description {
-  text-align: justify;
-}
 
-.image {
-  text-align: center;
-}
+
+
